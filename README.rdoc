@@ -1,0 +1,4 @@
+Coursify is a simple online course platform that you can use to host and sell your online courses.
+
+
+[Find the Installation Instructions here](http://www.trycoursify.com/download)
