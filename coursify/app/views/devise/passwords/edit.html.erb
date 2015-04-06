@@ -1,0 +1,112 @@
+
+<div class="hdr2" ></div>
+
+    <header>
+      <nav>
+
+        <div class="logo" >
+          <div class="logo-p2" ><a href="/" >Coursify</a></div>
+        </div>
+
+        <ul>
+        
+          
+          <div class="last" >
+          <li><a href="/signin" >Sign in</a></li>
+          </div>
+        </ul>
+
+      </nav>
+    </header>
+
+<div class="top-section-inner" >
+<div class="content padtop" >
+    <div class="row" >
+          <div class="medium-12 columns" > 
+         
+          <p class="register-text"  >Change your password?</p>
+           <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div data-alert style="margin:4px; margin-bottom:12px;" class="alert-box radius success">
+                <%= content_tag :div, msg %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            <% end %>
+          <% end %> 
+          </div></div>
+
+          <div class="row" >
+            <div class="medium-12 small-12 columns" > 
+               
+               <div class="panel radius" >
+
+
+                 <div class="row">
+                <div class="small-3 large-3 columns">
+                </div>
+          
+            <div class="small-6 large-6 columns">
+
+            
+           
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
+
+
+
+           <div class="formbody" >
+
+                <%= form.hidden_field :reset_password_token %>
+
+
+                   <div >
+                    <%= form.label :password, "New password" %>
+                    <%= form.password_field :password, autofocus: true, autocomplete: "off" %>
+                  </div>
+
+                  <div  >
+                    <%= form.label :password_confirmation, "Confirm new password" %>
+                    <%= form.password_field :password_confirmation, autocomplete: "off" %>
+                  </div>
+                        
+            </div>
+
+    <%= form.submit "Change password", :style => 'background-color:rgb(216, 38, 46);' , :class => "button expand success large radius" %>
+
+
+    <% end %>
+           
+
+
+  
+           
+          
+              
+            </div>
+
+            <div class="small-3 large-3 columns">
+                </div>
+            
+          </div>
+
+               </div>
+               
+            
+               
+            </div>
+
+            
+          </div>
+          
+
+      
+    </div>
+ </div>
+
+
+
+
+<div class="foot" style="border-top: none; padding-top: 30px; margin-top: 30px;" >
+
+      <%= render(:partial => '/application/footer_partial') %>
+      
+    </div>

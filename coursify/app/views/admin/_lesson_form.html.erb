@@ -1,0 +1,33 @@
+
+
+
+  <%= error_messages_for(@section) %>
+
+  <div class="field display-none">
+    <%=f.label(:section_id, "Section")%>
+    <%= f.select(:section_id, @sections.map {|s| [s.name, s.id]}) %>
+  </div>
+
+   <div class="field">
+    <%=f.label(:name, "Title")%>
+    <%= f.text_field(:name) %>
+    
+  </div>
+
+  <div class="field display-none">    
+    <%=f.label(:permalink)%>
+    <%= f.text_field(:permalink) %>    
+  </div>
+
+  <div class="field" >
+	<%= f.cktext_area :body, :ckeditor => { :toolbar => 'Lessonbody'}%>  	
+  </div>
+
+
+
+
+   <div class="field display-none">
+    
+   <%= f.select(:position, 1..@lesson_count, :selected => @lesson_position) %></td>
+  </div>
+

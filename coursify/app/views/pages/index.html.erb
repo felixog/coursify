@@ -1,0 +1,219 @@
+
+
+
+<% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div data-alert style="margin:4px; margin-bottom:12px;" class="alert-box radius success">
+                <%= content_tag :div, msg %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            <% end %>
+          <% end %> 
+
+      
+
+      <% if !max_price_reached?  %>
+        <%= render "launch_pricing" %>
+            <% end %>
+
+      
+
+<div class="hdr2"></div>
+<div class="page-body" >
+  <div class="header top-section" >
+    <div class="top-section-d" style="min-height: 300px; padding-bottom: 120px;" >
+    <div class="navigation-bar" >
+      <div class="logo" >
+          <div class="logo-p" ><p>Coursify</p></div>
+        </div>
+
+      <div class="main-nav" >
+      <ul>      
+              <div class="last" >
+                <li><a href="/signin"   >Sign in</a></li>
+              </div>
+          </ul> 
+      </div>      
+    </div>
+
+    <div class="course-intro" >
+      <h1 class="title" >Your Headline Goes Here...</h1>
+
+      <p class="subtitle" >A quick and easy way to sell your online course and make your students happy...</p>
+
+
+      <p class="cta" >
+     <a href="/enroll" class="alert button small  round" ><i class="fontawesome-shopping-cart" > </i> Enroll in Course for ($<%= current_price %>) </a>
+      </p>
+      
+    </div>      
+    </div>
+  </div>
+  <div class="body" >
+    <div class="course-description row" >
+
+      <div class="medium-2 columns hide-for-small-down" >
+        <span style="text-align: center;" class="display-block" ><%= image_tag("facebook.png", size: "40x40", alt: "facebook icon")%></span>
+        <span style="text-align: center;" class="display-block" ><%= image_tag("twitter.png", size: "40x40", alt: "twitter icon")%></span>
+        <span style="text-align: center;" class="display-block" ><%= image_tag("linkedin.png", size: "40x40", alt: "linkedin icon")%></span>
+        <span style="text-align: center;" class="display-block" ><a href="#" rel="publisher"><%= image_tag("google-plus.png", size: "40x40", alt: "google-plus icon")%></a></span>
+      </div>
+
+
+      <div class="medium-8 columns" >
+        <p><strong>This is where you add your course descriotion.</strong></p>
+
+        <p>Dummy text means you won't see the inevitable variations that show up once real information is entered.</p>
+
+        <p>You'll spend 4 hours going through the videos and another 91 minutes completing the exercises... If you get stuck at anytime, we'll be available to help you out.</p>
+
+        <p>Sure, it's easier to just run down the forms and fill the fields with garbage ("asdsadklja" "123usadfjasld" "snaxn2q9e7") in order to plow through them quickly. But that's not real. That's not what your customers are going to do.</p>
+
+        <p>Join our course today, so you can finally get all the benefits we are promising on this page.</p>
+
+        <p><strong>Prerequisite:</strong></p>
+
+        <p>If you have any prerequesites, you can add them here to let the student know what they need to know before signing up to your courses </p>
+
+        <p><strong>Topics Covered:</strong></p>
+
+        <ul>
+          <li>Here, you just need to</li>         
+          <li>give a quick summary</li>
+          <li>of the content that you'll be selling </li>
+          <li>the main benefits</li>
+          <li>and how what you are teaching</li>
+          <li>will help them achieve their goals</li>
+         
+        
+        </ul>
+
+        <p><strong>Why take this course?</strong></p>
+
+        <p>what is the main reason for the user to take your course? Where are they on their journey towards their goals? Identify with them and explain how your course will help them reach their destination faster.</p>
+
+        <p>You can put your final call to action here. Summarise the main benefits of the course and  demand action at this point. </p>
+        <a href="/enroll" class="alert expand button large  radius"><i class="fontawesome-shopping-cart"> </i> Enroll in Course for ($<%= current_price %>) </a>
+      </div>
+      <div class="medium-2 columns" ></div>
+      
+    </div>
+
+    <div class="course-instructor " >
+        
+        <div class="row" >
+          <div class="course-instructor-center" >
+            <div class="medium-3 columns" ><h2 class="course-instructor-center-heading" ></div>
+            <div class="medium-9 columns" ><h2 class="course-instructor-center-heading" >Your Instructor</h2></div>
+            <div class="medium-3 columns" style="" >
+              <span style="text-align: center;" class="display-block instructor-image" ><%= image_tag("teacher.jpg", alt: "Instructor Picture")%></span>
+              <h5 style="font-family: 'Lato', Arial,sans-serif;" class="text-center" >Your Name Here</h5>
+              
+            </div>
+
+            <div class="medium-9 columns" >
+              <p>What makes you qualified to teach this course? Tell the short story of how you learnt the material you are teaching, in this section. More Instructors? Add them below.</p>
+
+              <p>Oh, this is another paragraph to add more text.</p>
+
+              <p>And a third paragraph. Use it wisely.</p>
+              
+            </div>
+          </div>
+          
+        </div>
+    </div>
+
+    <div class="course-curriculum row" >
+      
+      <div class="medium-8 small-centered columns" >
+        <h2 class="course-curriculum-heading" >Course Curriculum</h2>
+
+        
+        <ul class="curriculum-ul">
+        <% @sections.each do |section|  %>
+          <li class="curriculum-section-heading" > <%= section.name %></li>
+
+          <% section.lessons.visible.sorted.each do |lesson| %>
+            <%= link_to :controller => 'studentportal', :action => 'show', :permalink => lesson.permalink do %>
+                <li class="curriculum-section-item" > 
+                <span class="float-left" id=""  ><%= lesson.name %> </span>
+
+
+
+
+
+                <div class="float-right"  ><span  style=" margin:0; padding-top:0; padding-bottom:0; height: 30px; line-height: 30px;"  class="button radius tiny">Start</span></div>
+                <div  class="clear" ></div>
+                
+                </li>
+            <% end %>
+          <% end %>
+        <% end %>
+          
+        </ul>
+        
+      </div>        
+    </div>
+
+    <div class="course-faq" >
+      <div class="row" >
+        <div class="course-faq-center" >
+          <div class="medium-12 columns" >
+            <h3 class="course-faq-center-heading" >Frequently Asked Questions</h3>
+
+             
+
+               
+
+                <div class="course-faq-question">
+                <p>What questions do people ask before they buy?</p>
+              </div>
+              <div class="course-faq-answer" >
+                <p>Make sure you include them all and answer them  succinctly in this FAQ's section. Example below.</p>
+              </div>
+
+               <div class="course-faq-question">
+                <p>How much prerequisite knowledge do I need to have?</p>
+              </div>
+              <div class="course-faq-answer" >
+                <p>With a basic understanding of HTML and CSS, you'll be able to follow this course comfortably. A basic understanding of the Ruby programming language will also be helpful, but it's definitely not required.</p>
+              </div>
+
+               <div class="course-faq-question">
+                <p>How much prerequisite knowledge do I need to have?</p>
+              </div>
+              <div class="course-faq-answer" >
+                <p>With a basic understanding of HTML and CSS, you'll be able to follow this course comfortably. A basic understanding of the Ruby programming language will also be helpful, but it's definitely not required.</p>
+              </div>
+
+               
+
+          </div>
+
+        </div>        
+      </div>
+      
+    </div>
+    
+    <div class="course-final-cta row" >
+
+      <div class="medium-8 medium-centered columns"  >
+        <h2 class="text-center" >Get Started Today!</h2>
+        <p class="cta" >
+        <a href="" class="button alert small round" >Enroll in Course for ($<%= current_price %>)</a> 
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+<div class="foot" style="border-top: none; background-color: #ecf0f1; padding-top: 80px; margin-top: 30px;" >
+
+     <%= render(:partial => '/application/footer_partial') %>
+      
+    </div>
+
+</div> 

@@ -1,0 +1,168 @@
+
+<div class="hdr2" ></div>
+
+    <header>
+      <nav>
+
+        <div class="logo" >
+          <div class="logo-p2" ><a href="/" >Coursify</a></div>
+        </div>
+
+        <ul>
+        
+
+          <div class="last" >
+          <li><a href="/signin"  >Sign in</a></li>
+
+              
+
+          </div>
+        </ul>
+
+      </nav>
+    </header>
+
+<div class="top-section-inner" >
+<div class="content padtop" >
+    <div class="row" >
+          <div class="medium-12 columns" > 
+          <p class="register-text"  >Create your account</p>
+          <p class="rtsub" >And get started in <strong>30 seconds</strong> for only <strong>$<%= current_price %></strong></p>
+          </div></div>
+
+          <div class="row" >
+            <div class="medium-7 small-12 columns" > 
+               
+               <div class="panel radius" >
+
+
+                 <div class="row">
+               
+
+
+          <div><%= devise_error_messages_stripe(@studentuser)  %></div>
+
+            <div><% if flash[:stripe]%>
+<% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div data-alert style="margin:4px; margin-bottom:12px;" class="alert-box radius success">
+                <%= content_tag :div, msg %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            <% end %>
+          <% end %> 
+          <% end %> </div>
+            <div class="small-12 large-12 columns">
+
+            
+            <%= form_for( @message, :url => {:action => 'enroll'}) do |form| %>
+
+
+ <div class="formbody" >
+
+                  <div>
+                  <%= form.label :name, 'Full Name:' %>
+                  <%= form.text_field :name, :placeholder => "Enter your full name" %>
+                  </div>
+
+                  <div>
+                  <%= form.label :email, 'Email Address:' %>
+                  <%= form.text_field :email, :placeholder => "Enter your email address" %>
+                  </div>  
+
+                  <div class="field">
+                   
+                  <label>Password (8 characters minimum)</label>
+                  <%= form.password_field :password, autocomplete: "off" %>
+                </div>
+
+           
+
+
+                  <div>
+                  <%= form.hidden_field :subject, value: "OneDayRails Enroll" %>
+                  </div>
+
+                         
+ </div>
+
+    
+
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+
+
+    <button id="customButton" class="button expand success large radius" style="background-color:rgb(216, 38, 46);" >GET STARTED</button>
+
+  <script>
+    $('#customButton').click(function(){
+      var token = function(res){
+        var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+        $('form').append($input).submit();
+      };
+
+      StripeCheckout.open({
+        key:         '<%= Rails.configuration.stripe[:publishable_key] %>',
+        amount:      <%= current_price_stripe %>,
+        currency:    'usd',
+        image:       '/codequad.png',
+        name:        'One Day Rails',
+        description: 'Enroll Today for Only $<%= current_price %>',
+        panelLabel:  'GET STARTED',
+        token:       token
+      });
+
+      return false;
+    });
+  </script>
+
+
+    <% end %>
+           
+  
+           
+          
+              
+            </div>
+            
+          </div>
+
+               </div>
+               
+            
+               
+            </div>
+
+            <div class="medium-5 show-for-medium-up columns" > 
+
+          
+
+            <div class="main-img" > <%= image_tag("bg4.jpg") %></div>
+            
+            
+            
+
+
+
+            <p>"<strong>Summarise</strong> the main benefit the user will recieve, in one simple sentence and put that here.</p> </div>
+          </div>
+          
+
+      
+    </div>
+ </div>
+
+
+
+
+
+<div class="foot" style="border-top: none;" >
+
+      <%= render(:partial => '/application/footer_partial') %>
+
+     
+      
+    </div>
+
+</div> 

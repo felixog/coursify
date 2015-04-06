@@ -1,0 +1,106 @@
+
+
+
+<div class="" style="height: 100%;" >
+
+
+<div style="position: fixed; width: 100%;" class="portal-header" >
+  <div class="hdr2" ></div>
+    <div class="navigation-bar" >
+    <h1  class="logo" > <span onclick="myFunction()"  class="hide-for-medium-up" ><%= fa_icon "bars" %></span> <a href="/" class="show-for-medium-up" style="color: #fff" ><span  >Coursify</span></a></h1>
+      <div class="main-nav" >
+  
+
+            
+        <ul class="navright" >
+      <div class="last">
+
+              <li>            
+                
+                <a href="#" data-dropdown="drop" data-options="align:left;"><%= fa_icon "user" %> <%= current_student_user.name %></a>
+
+                <ul id="drop" class="f-dropdown" data-dropdown-content>
+        <li>
+            <a href="/student_users/edit" style="text-transform: capitalize;">Edit Profile</a>
+        </li>
+        <li><a data-method="delete" href="/signout" rel="nofollow" style="text-transform: capitalize;">Sign Out</a></li>
+      </ul> 
+              </li>
+            </div>
+         </ul>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="portal-show-body row" style="height: 100%; padding-top: 65px; " >
+  <div  class="portal-nav medium-3 columns show-for-medium-up " id="toggle-menu"   >
+             <ul class="curriculum-ul">
+        <% @sections.each do |section|  %>
+          <li class="curriculum-section-heading" > <%= section.name %></li>
+
+          <% section.lessons.visible.sorted.each do |lesson| %>
+            
+            
+            <%= link_to :controller => 'studentportal', :action => 'show', :permalink => lesson.permalink do %>
+                <li class="curriculum-section-item <%= current_page?("/portal/#{lesson.permalink}")? "thisbg" : " " %>"  > 
+                
+                <%= current_page?("/portal/#{lesson.permalink}")? "<span id='this'></span>".html_safe : " " %>
+
+                <span class="float-left"   ><%= lesson.name %>   </span>
+
+
+                <!-- <div class="float-right"  ><span  style=" margin:0; padding-top:0; padding-bottom:0; height: 30px; line-height: 30px;"  class="button radius tiny">Start</span></div> -->
+                <div  class="clear" ></div>
+                
+                </li>
+            <% end %>            
+          <% end %>
+          
+        <% end %>
+          
+        </ul>
+        
+    </div>
+    <div class="medium-9 columns" >
+       <div class="portal-content-block" >
+
+       <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div data-alert style="margin:4px; margin-bottom:12px;" class="alert-box radius success">
+                <%= content_tag :div, msg %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            <% end %>
+          <% end %> 
+
+              <h3 class="text-left" >  <%=  @lesson.name %> <br><small>From <%=  @section.name %></small></h3>
+            <hr />
+
+           <%= raw(@lesson.body) %>
+
+
+
+            <div class="next-lecture" >
+              <%= link_to("Next Lesson", next_page_path(:permalink => @lesson.permalink, :section_id => @lesson.section_id), class: "button round ") %>
+
+              <p class="display-inline" ><%= "#{@next_lesson_object.name}" %> </p>
+            </div>
+             
+
+               <%= render(:partial => '/application/disqus_partial') %>
+       </div>
+
+    </div>
+    </div>
+
+
+</div>
+
+
+   

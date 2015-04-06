@@ -1,0 +1,15 @@
+
+
+
+  <%= error_messages_for(@section) %>
+
+  <div class="field">
+    <%=f.label(:name, "Name")%>
+    <%= f.text_field(:name) %>
+  </div>
+
+   <div class="field display-none">
+    
+    <%= f.select(:position, 1..@section_count, :selected => @section_position) %>
+  </div>
+

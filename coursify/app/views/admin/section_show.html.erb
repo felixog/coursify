@@ -1,0 +1,118 @@
+
+
+<div class="" style="height: 100%;" >
+
+
+<div style="position: fixed; width: 100%;" class="portal-header" >
+  <div class="hdr2" ></div>
+    <div class="navigation-bar" >
+    <h1 class="logo" > <span onclick="myFunction()"  class="hide-for-medium-up" ><%= fa_icon "bars" %></span> <a href="/" class="show-for-medium-up" style="color: #fff" ><span  >Coursify</span></a></h1>
+      <div class="main-nav" >
+  <ul class="navright" >
+      <div class="last">
+
+              <li>            
+                
+                <a href="#" data-dropdown="drop" data-options="align:left;"><%= fa_icon "user" %> <%= current_admin_user.name %></a>
+
+                <ul id="drop" class="f-dropdown" data-dropdown-content>
+        <li>
+             <a href="/admin_users/edit" style="text-transform: capitalize;">Edit Profile</a>
+        </li>
+        <li><a data-method="delete" href="/signout" rel="nofollow" style="text-transform: capitalize;">Sign Out</a></li>
+      </ul> 
+              </li>
+            </div>
+         </ul>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="portal-show-body row" style="height: 100%; padding-top: 65px; " >
+  <div class="portal-nav medium-3 columns show-for-medium-up " id="toggle-menu"   >
+
+
+
+       <ul class="curriculum-ul" >
+            <span id='this'></span>
+              <li class="curriculum-section-heading  first-heading" ><%= link_to "+ Add New Section" , {:controller => 'admin', :action => 'section_new'}, class: "button expand"  %></li>
+      </ul>
+
+
+       <ul class="curriculum-ul" id="sections" data-update-url="<%= sort_sections_url %>">
+
+       
+
+
+        <% @sections.each do |section|  %>
+         
+
+          
+          <li id="section_<%= section.id %>" class="curriculum-section-heading admin-sections-nav <%= current_page?("/admin/section_show/#{section.id}")? "thisbg" : " " %>" > 
+                <span class="handle" ><%= fa_icon "bars" %> </span>
+                <%= link_to "#{section.name}", :controller => 'admin', :action => 'section_show',:id => section.id %> </li>
+          
+          
+        <% end %>
+          
+        </ul>
+    </div>
+    <div class="medium-9 columns" >
+       <div class="portal-content-block" >
+       	<% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div data-alert style="margin:4px; margin-bottom:12px;" class="alert-box radius success">
+                <%= content_tag :div, msg %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            <% end %>
+          <% end %> 
+          
+     	<div  ><%= link_to " + Add New Lesson", {action: "lesson_new", :section_id => @section.id }, class: "expand radius
+                button success float-right", style: "margin-top: 0; margin-bottom: 10px; padding-left: 10px; padding-right: 10px;" %></div>
+
+                
+
+        	 
+            <hr>
+
+
+            <ul class="curriculum-ul" >
+             <li  class="curriculum-section-heading admin-section-nav" > <%= @section.name %> <%= link_to "Delete" , {:controller => 'admin', :action => 'section_destroy', :id => @section.id}, method: :delete, data: { confirm: "Are you sure?" }, class: "destroy-button  float-right"  %> <%= link_to "Edit" , {:controller => 'admin', :action => 'section_edit', :id => @section.id}, class: "edit-button  float-right"  %> </li>
+           
+              </ul>
+           <ul class="curriculum-ul" id="lessons" data-update-url="<%= sort_lessons_url %>" >
+
+		       
+		              <% @section.lessons.visible.sorted.each do |lesson| %>
+		            
+		            
+		            
+		                <li id="lesson_<%= lesson.id %>" class="curriculum-section-item "  > 
+		                	<%= link_to  :action => 'lesson_edit', :id => lesson.id, :section_id => lesson.section_id do %>	                
+
+		                <span class="float-left"   ><%= lesson.name %> </span>
+
+
+		                <!-- <div class="float-right"  ><span  style=" margin:0; padding-top:0; padding-bottom:0; height: 30px; line-height: 30px;"  class="button radius tiny">Start</span></div> -->
+		                
+		                <% end %> 
+                    <span class="handle" ><%= fa_icon "bars" %> </span>
+                    <div  class="clear" ></div>
+
+		                </li>
+		            
+		            <% end %> 
+        	</ul>
+         
+       </div>
+
+    </div>
+    </div>
+</div>

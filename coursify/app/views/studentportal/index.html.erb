@@ -1,0 +1,105 @@
+
+
+<div class="" style="height: 100%;" >
+
+
+<div style="position: fixed; width: 100%;" class="portal-header" >
+  <div class="hdr2" ></div>
+    <div class="navigation-bar" >
+    <h1 class="logo" > <span onclick="myFunction()"  class="hide-for-medium-up" ><%= fa_icon "bars" %></span> <a href="/" class="show-for-medium-up" style="color: #fff" ><span  >Coursify</span></a></h1>
+      <div class="main-nav" >
+  <ul class="navright" >
+      <div class="last">
+
+              <li>            
+                
+                <a href="#" data-dropdown="drop" data-options="align:left;"><%= fa_icon "user" %> <%= current_student_user.name %></a>
+
+                <ul id="drop" class="f-dropdown" data-dropdown-content>
+        <li>
+            <a href="/student_users/edit" style="text-transform: capitalize;">Edit Profile</a>
+        </li>
+        <li><a data-method="delete" href="/signout" rel="nofollow" style="text-transform: capitalize;">Sign Out</a></li>
+      </ul> 
+              </li>
+            </div>
+         </ul>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="portal-show-body row" style="height: 100%; padding-top: 65px; " >
+  <div class="portal-nav medium-3 columns show-for-medium-up " id="toggle-menu"   >
+       <ul class="curriculum-ul">
+       <span id='this'></span>
+        <% @sections.each do |section|  %>
+          <li class="curriculum-section-heading" > <%= section.name %></li>
+
+          <% section.lessons.visible.sorted.each do |lesson| %>
+            
+            
+            <%= link_to :controller => 'studentportal', :action => 'show', :permalink => lesson.permalink do %>
+                <li class="curriculum-section-item <%= current_page?("/portal/#{lesson.permalink}")? "thisbg" : " " %>"  > 
+                
+                <%= current_page?("/portal/#{lesson.permalink}")? "<span id='this'></span>".html_safe : " " %>
+
+                <span class="float-left"   ><%= lesson.name %>   </span>
+
+
+                <div  class="clear" ></div>
+                
+                </li>
+            <% end %>            
+          <% end %>
+          
+        <% end %>
+          
+        </ul>
+    </div>
+    <div class="medium-9 columns" >
+       <div class="portal-content-block" >
+       <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div data-alert style="margin:4px; margin-bottom:12px;" class="alert-box radius success">
+                <%= content_tag :div, msg %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            <% end %>
+          <% end %> 
+          <h3 class="text-left"  >Welcome to One Day Rails.</h3>
+        
+            <hr>
+          <div class="portal-home-next-lecture-block" >
+            <% if current_student_user.last_viewed_lecture == nil %>
+            <div class="next-lecture " >
+              
+              <%= link_to("Start Your First Lesson", "/portal/#{@first_lesson.permalink}" , class: "button round") %>
+              <p class="display-inline" ><%= "#{@first_lesson.name}" %>  </p>
+            </div>
+            <% else %>
+            <div class="next-lecture " >
+              
+              <%= link_to("Continue Last Lesson", "/portal/#{@current_student_user.last_viewed_lecture}" , class: "button round") %>
+              <p class="display-inline" ><%= "#{@last_lesson.name}" %>  </p>
+            </div>
+            <% end %>
+
+          </div>
+
+          <div style="padding-bottom: 460px;" class="flex-video" >
+            <iframe src="//fast.wistia.net/embed/iframe/ixvkw3bm6g?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe><script src="//fast.wistia.net/assets/external/E-v1.js"></script>
+          </div>
+
+        
+         
+       </div>
+
+    </div>
+    </div>
+</div>

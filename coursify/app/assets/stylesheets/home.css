@@ -1,0 +1,598 @@
+
+/*
+
+		Head Section
+
+*/
+#sections .handle {
+	cursor: move;
+	color: #777;
+	float: right;
+	font-size: 90%;
+	margin-left: 10px;
+}
+
+#lessons .handle {
+	cursor: move;
+	color: #777;
+	padding-top: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	float: right;
+	font-size: 90%;
+	margin-left: 10px;
+}
+.bottom-spacer {
+	margin-bottom: 10px !important;
+}
+
+.destroy-button {
+	background-color: #f04124;
+border-color: #cf2a0e;
+padding: 3px 20px;
+color: white;
+font-size: 70%;
+border-radius: 4px;
+margin-left: 10px;
+
+}
+
+.destroy-button:hover {
+	color: white;
+
+}
+
+.edit-button {
+	background-color: #43ac6a;
+border-color: #368a55;
+padding: 3px 20px;
+color: white;
+font-size: 70%;
+border-radius: 4px;
+
+}
+
+.edit-button:hover {
+	color: white;
+	background-color: #368a55;
+
+}
+
+
+.display-none {
+	display: none;
+}
+
+
+.header {
+	min-height: 300px;
+	
+	background-color: red;
+}
+
+.thisbg {
+		background-color: rgba(74, 144,225, .30) !important;
+
+}
+
+/*Nav bar*/
+.header .navigation-bar {
+	min-height: 60px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	max-width: 1140px;
+	margin: 0 auto;
+	padding-left: 10px;
+}
+
+.navigation-bar .logo {
+	float: left;
+	font-size: 1.7rem;
+	text-transform: uppercase;
+	line-height: 60px;
+}
+
+.navigation-bar .logo a {
+	color: #fff;
+}
+
+.navigation-bar .main-nav {
+	float: right;
+
+}
+
+.navigation-bar .main-nav ul {
+	list-style-type: none;
+}
+
+.navigation-bar .main-nav li {
+	display: inline;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 60px;
+}
+
+/*Course Intro Block*/
+
+.course-intro {
+	padding-top: 90px;
+}
+.course-intro .title {
+	text-align: center;
+	font-size: 3rem;
+	line-height: 1.4;
+	font-weight: 900;
+	max-width: 900px;
+	color: #fff;
+	margin: 0 auto;
+	font-family: 'Lato', sans-serif;
+}
+
+.course-intro .subtitle {
+	font-size: 1.4rem;
+	line-height: 1.5;
+	color: #fff;
+	text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	font-family: 'Lato', sans-serif;
+}
+
+
+
+.course-intro .cta {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.course-intro .cta a {
+	font-size: 1.4rem;
+	line-height: 1.5;
+	max-width: 900px;
+	margin: 0 auto;
+
+}
+
+
+/*
+
+		Body Section
+
+*/
+
+.body {
+	padding-top: 20px;
+}
+
+
+/*Description Block*/
+
+.course-description {
+	max-width: 1140px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+}
+
+.course-description p {
+	font-size: 1.14rem;
+font-weight: 400;
+text-rendering: optimizeLegibility;
+line-height: 1.6;
+font-family: 'Open Sans', Arial,sans-serif;
+}
+
+/*Instructor Block*/
+
+.course-instructor {
+	background-color: #ecf0f1;
+	padding-bottom: 80px;
+}
+.course-instructor-center {
+	padding-top: 80px;
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+.course-instructor-center p{
+		font-size: 1.04rem;
+		font-weight: 400;
+		text-rendering: optimizeLegibility;
+		line-height: 1.6;
+		font-family: 'Lato', Arial,sans-serif;
+
+}
+
+.course-instructor-center-heading {
+	padding-bottom: 10px;
+	font-family: 'Lato', Arial,sans-serif;
+}
+
+.course-instructor-center .instructor-image img {
+	border-radius: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+/*Curriculum Block*/
+
+.course-curriculum {
+	max-width: 1140px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+}
+
+.curriculum-ul{
+	padding: 0;
+	margin: 0;	
+} 
+.course-curriculum-heading {
+	/*the main heading of the section*/
+		font-family: 'Lato', Arial,sans-serif;
+
+}
+.curriculum-section-heading {
+	
+
+	background-color: #D3D7D8;
+	list-style-type: none;
+	font-weight: bold;
+	border-bottom: 1px solid #fff;
+	padding: 10px 16px;
+	margin-top: 10px;
+		font-family: 'Lato', Arial,sans-serif;
+
+
+}
+
+.curriculum-section-item {
+	background-color: #ecf0f1;
+	list-style-type: none;
+	border-bottom: 1px solid #fff;
+	padding: 10px 16px;
+	line-height: 1.4;
+	padding-left: 25px;
+
+}
+
+.curriculum-section-form {
+	background-color: #ecf0f1;
+	list-style-type: none;
+	border-bottom: 1px solid #fff;
+	padding: 10px 16px;
+	line-height: 1.4;
+	padding-left: 25px;
+
+}
+
+.curriculum-section-item:hover{
+	background-color: rgba(74, 144,225, .30);
+}
+
+.curriculum-section-item .float-left {
+	padding-top: 4px;
+}
+
+/*FAQ Block*/
+
+.course-faq {
+	background-color: #ecf0f1;
+	padding-bottom: 80px;
+}
+.course-faq-center {
+	padding-top: 80px;
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+.course-faq-center-heading {
+	padding-bottom: 25px;
+	font-family: 'Lato', Arial,sans-serif;
+}
+.course-faq-question p {
+	font-weight: bold;
+	font-size: 120%;
+	font-family: 'Lato', Arial,sans-serif;
+	margin-bottom: 5px;
+}
+.course-faq-answer {
+	padding-bottom: 30px;
+	font-family: 'Lato', Arial,sans-serif;
+}
+
+/*cta-block*/
+.course-final-cta {
+
+	max-width: 1140px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+	
+}
+
+.course-final-cta h2 {
+	font-family: 'Lato', Arial,sans-serif;
+}
+
+.course-final-cta .cta {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.course-final-cta .cta a {
+	font-size: 1.4rem;
+	line-height: 1.5;
+	max-width: 900px;
+	margin: 0 auto;
+
+}
+/*
+
+	FOOTER
+
+*/
+
+.footer2 {
+	background-color: #202425;
+	color: white;
+	/*padding-top: 40px;
+	padding-bottom: 80px;*/
+	padding: 40px;
+}
+
+.footer2 p {
+	font-family: 'Lato', Arial,sans-serif;
+}
+
+.footer2 a {
+	font-family: 'Lato', Arial,sans-serif;
+}
+
+.footer-center {
+
+}
+
+/*
+
+	OTHER
+
+*/
+
+/* Utility Classes*/
+
+.display-block {
+	display: block;
+	padding-bottom: 10px;
+}
+
+.display-inline {
+	display: inline;
+	padding-left: 10px;
+}
+
+.clear {
+	clear: left;
+	clear: right;
+	clear: both;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+		Head Section
+
+*/
+
+
+.portal-header {
+	background-color: #3A3E3F !important;/*#202425*/
+	z-index: 20;
+
+}
+
+/*Nav bar*/
+.portal-header .navigation-bar {
+	min-height: 60px;
+
+	max-width: 1400px;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.portal-header .navigation-bar .logo {
+	float: left;
+	font-size: 1.27rem;
+	text-transform: capitalize;
+	line-height: 60px;
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.portal-header .navigation-bar .main-nav {
+	float: right;
+	color: #fff;
+
+}
+
+.portal-header .navigation-bar .main-nav ul {
+	list-style-type: none;
+}
+
+.portal-header .navigation-bar .main-nav li {
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 60px;
+}
+
+.portal-header .navigation-bar .main-nav .f-dropdown  li {
+	color: #222222;
+}
+
+
+/*
+
+		Body Section
+
+*/
+
+
+.portal-body {
+	padding-top: 20px;
+}
+
+/*Next Lecture Block*/
+
+.portal-home-next-lecture-block {
+	padding-bottom: 20px;
+}
+@media only screen and (max-width: 64.063em) {
+	.portal-nav li {
+		font-size: 0.8rem;
+	}
+
+	.curriculum-section-item {	
+		padding-left: 10px;
+
+	}
+
+	.curriculum-section-heading {
+		padding-left: 10px;
+
+	}
+
+ } 
+
+ @media only screen and (max-width: 40em) { 
+ 	.portal-nav {
+ 		position: static !important;
+ 	}
+
+ 	.display-block-on-click {
+ 		display: block !important;
+ 	}
+
+ 	.show-menu {
+		position: static !important;
+		display: block !important;
+	}
+
+ }
+
+
+.portal-next-lecture-block {
+	max-width: 1140px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+}
+  .next-lecture {
+		background-color: rgba(74, 144,225, .30);
+		border-radius: 35px;
+
+
+}
+
+  .next-lecture a {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#disqus_thread {
+	padding-top: 20px;
+}
+
+.display-inline-block {
+	display: inline-block;
+}
+
+.display-block {
+	display: block;
+}
+/*Portal Content Block*/
+
+
+.portal-content-block {
+	max-width: 850px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin:  0 auto
+
+}
+  
+
+
+/*
+	Show Page Section
+*/
+
+.portal-show-body {
+	max-width: 1400px;
+
+}
+
+.portal-nav {
+
+	
+	height: calc(100% - 65px);
+	height: -o-calc(100% - 65px); /* opera */
+	height: -webkit-calc(100% - 65px); /* google, safari */
+	height: -moz-calc(100% - 65px); /* firefox */
+	overflow-y: auto;
+	background-color:  #ecf0f1;
+	position: fixed;
+	padding-bottom: 70px;
+	/*position:absolute;
+    bottom:0;
+    top:65px;*/
+
+}
+
+.portal-nav span#this {
+display: block; position: relative; top: -150px; visibility: hidden;
+}
+
+.navright {
+	margin-bottom: 0 !important;
+	
+}
+
+
+
+.admin-nav a {
+	color: #ecf0f1;
+	padding: 7px 16px;
+	font-size: 1.1rem;
+}
+
+
+.first-heading a {
+	margin-bottom: 5px !important;
+	margin-top: 5px !important;
+}
+
+.admin-sections-nav {
+	border-bottom: none !important;
+}
