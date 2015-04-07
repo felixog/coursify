@@ -27,9 +27,8 @@ class StudentportalController < ApplicationController
       current_student_user.update_attribute(:last_viewed_lecture, @lesson.permalink)
       @current_student_user = current_student_user
 
-      @permalink = params[:permalink]
-      @lesson = Lesson.where(:permalink => params[:permalink], :visible => true).first      
-      @sections_all = Section.all.size
+      @permalink = params[:permalink]      
+      @sections_all = Section.count
       @current_section = current_section
       @current_section_size = size_of_section(@current_section)
       @current_lesson_position = lesson_position(@lesson)

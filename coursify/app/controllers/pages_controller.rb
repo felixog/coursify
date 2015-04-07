@@ -10,19 +10,10 @@ class PagesController < ApplicationController
 
 	end
 
-  #admin
   def dashboard
     
   end
 
-  # def content
-    
-  # end
-
-  # def settings
-    
-  # end
-  #admin-end
 
   def home
     @sections  = Section.visible.sorted
@@ -57,11 +48,7 @@ class PagesController < ApplicationController
 	def create
     @message = Message.new(params[:message])
     @studentuser = StudentUser.new(student_user_params)
-    @amount = current_price_stripee
-    
-
-    # @user = User.new(params[:user])
-    # @studentuser = StudentUser.new(params[:message])
+    @amount = current_price_stripe      
 
     if params[:message][:password].blank?
       params[:message].delete(:password)
@@ -109,23 +96,6 @@ class PagesController < ApplicationController
 
   def student_user_params
     params.require(:message).permit(:name,:email, :password, :password_confirmation)
-  end
-
-  def current_price_stripee
-    s = StudentUser.all
-    count = s.size
-    if count >= 39
-      cprice = 39
-      return cprice*100
-    else
-      if count < 1
-        cprice = 1
-        return cprice*100
-      else
-        cprice = count
-        return cprice*100
-      end
-    end
-  end
+  end 
 end
 
