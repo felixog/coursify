@@ -14,9 +14,9 @@ On Line 4, replace ```your_api_id_here``` with your intercom app id.
 
 ## Pricing
 
-Open ```app >> helpers >> application_helper.rb``` and on line 133, replace "39" with your course price.
+Open ```app >> controllers >> application_controller.rb``` and on line 81, replace "39" with your course price.
 
-On line 132, set ```@incremental``` to true or false, depending on whether or not you want incremental pricing on or off.
+On line 80, set ```@incremental``` to true or false, depending on whether or not you want incremental pricing on or off.
 
 ## Footer
 
