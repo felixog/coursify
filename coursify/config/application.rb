@@ -16,13 +16,13 @@ module Coursify
     :user_name => "your_mandrill_email",
     :password  => "Your_Mandrill_password", # SMTP password is any valid API key
     :authentication => 'plain', # Mandrill supports 'plain' or 'login'
-    :domain => 'www.Your_domain_name.com', # your domain to identify your server when connecting
+    :domain => 'www.domain.com', # your domain to identify your server when connecting
     }
 
     config.action_mailer.default_url_options = {
-      :host => "www.Your_domain_name.com"
+      :host => "www.domain.com"
     }
-    
+
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
