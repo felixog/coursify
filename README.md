@@ -3,8 +3,14 @@
 Navigate to the "coursify" directory:
 
        1.  Run "bundle install"
-       2.  Run "rake db:migrate"
+       1.  Run "rake db:migrate"
 
+## Admin User
+If you want to explore the system, we've included a default admin user in the database seeds.rb file. You may change the email address and password or just keep the defaults to explore the system.
+
+Change ( or don't ) the seeds file to your liking and run:
+
+    rake db:seeds
 
 ## Intercom
 
