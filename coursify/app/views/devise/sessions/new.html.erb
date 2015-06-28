@@ -9,14 +9,14 @@
         </div>
 
         <ul>
-        
+
           <% if student_user_signed_in?%>
           <div class="last" >
           <li><a style="text-transform: capitalize;" href="#" data-reveal-id="wait" ><%= "Welcome, #{current_student_user.name}." %></a></li>
 
           <li> <%= link_to "Sign Out", destroy_student_user_session_path, :class => "button radius small success"  %> </li>
 
-              
+
 
           </div>
 
@@ -33,9 +33,9 @@
 <div class="top-section-inner" >
 <div class="content padtop" >
     <div class="row" >
-          <div class="medium-12 columns" > 
-         
-          <p class="register-text"  >Sign in to <strong>CouseName</strong></p>
+          <div class="medium-12 columns" >
+
+          <p class="register-text"  >Sign in to <strong>CourseName</strong></p>
           <p class="rtsub" >Don't have an account? <a href="/enroll">Click Here to Enroll</a>.</p>
            <% flash.each do |name, msg| %>
             <% if msg.is_a?(String) %>
@@ -44,22 +44,22 @@
                 <a href="#" class="close">&times;</a>
               </div>
             <% end %>
-          <% end %> 
+          <% end %>
           </div></div>
 
           <div class="row" >
-            <div class="medium-12 small-12 columns" > 
-               
+            <div class="medium-12 small-12 columns" >
+
                <div class="panel radius" >
 
 
                  <div class="row">
                 <div class="small-3 large-3 columns">
                 </div>
-          
+
             <div class="small-6 large-6 columns">
 
-            
+
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
 
 
@@ -72,15 +72,15 @@
 
                    <% end %>
 
-                  <div>                  
+                  <div>
                   <%= form.label :email, 'Email' %>
                   <%= form.text_field :email %>
-                  </div> 
+                  </div>
 
-                  <div>                  
+                  <div>
                   <%= form.label :password, 'Password' %>
                   <%= form.password_field :password, autocomplete: "off" %>
-                  </div> 
+                  </div>
 
 
 
@@ -90,50 +90,50 @@
                         <%= form.label :remember_me %>
                       </div>
                     <% end -%>
-                  
-                  
-
-                  
-                  
 
 
-                
-                         
+
+
+
+
+
+
+
             </div>
 
     <%= form.submit "Sign in", :style => 'background-color:rgb(216, 38, 46);' , :class => "button expand success large radius" %>
 
 
     <% end %>
-           
+
            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
             <p class="text-center" >
              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
            </p>
            <% end -%>
 
-  
-           
-          
-              
+
+
+
+
             </div>
 
             <div class="small-3 large-3 columns">
                 </div>
-            
+
           </div>
 
                </div>
-               
-            
-               
+
+
+
             </div>
 
-            
-          </div>
-          
 
-      
+          </div>
+
+
+
     </div>
  </div>
 
@@ -142,5 +142,5 @@
 
 <div class="foot" style="border-top: none; padding-top: 30px; margin-top: 30px;" >
       <%= render(:partial => '/application/footer_partial') %>
-      
+
     </div>
