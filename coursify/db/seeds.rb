@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+user = AdminUser.new
+user.email = 'admin@coursify.com'
+user.password = 'password'
+user.password_confirmation = 'password'
+user.save!
